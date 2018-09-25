@@ -2,6 +2,10 @@
 
 The Microsoft Azure CLI Docker Image; wrapped with some added support for using a Service Principal.
 
+## Requirements
+
+- [jq](https://stedolan.github.io/jq/download/)
+
 ## Usage
 
 Invoke the following to start the [Azure CLI][dockerhub-msft-azurecli].
