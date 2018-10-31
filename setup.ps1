@@ -1,4 +1,5 @@
 Param (
+    [Parameter(ValueFromPipeline)]
     [string] $SubscriptionID,
     [string] $Path
 )
