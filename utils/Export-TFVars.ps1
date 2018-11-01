@@ -3,11 +3,8 @@ Param (
     [string] $Path
 )
 
-$ParentPath = Split-Path -Path $Path -Parent
-$LeafPath = Split-Path -Path $Path -Leaf
+$Json = Get-Content $Path
 
-Push-Location $ParentPath
-    $env:ARM_CLIENT_ID = $(jq -r .appId $LeafPath)
-    $env:ARM_CLIENT_SECRET = $(jq -r .password $LeafPath)
-    $env:ARM_TENANT_ID = $(jq -r .tenant $LeafPath)
-Pop-Location
+$env:ARM_CLIENT_ID = $($Json | jq -r .appId)
+$env:ARM_CLIENT_SECRET = $($Json | jq -r .password)
+$env:ARM_TENANT_ID = $($Json | jq -r .tenant)
