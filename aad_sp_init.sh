@@ -11,7 +11,10 @@ create_aad_sp() {
     local json="$2"
 
     az account set --subscription="$sub"
-    az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$sub" | tee $json
+    az ad sp create-for-rbac \
+        --role="Contributor" \
+        --scopes="/subscriptions/$sub" \
+    | tee $json
 }
 
 read_sp_json() {
