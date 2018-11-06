@@ -1,7 +1,11 @@
 Param (
-    [Parameter(Mandatory,ValueFromPipeline)]
+    [Parameter(ValueFromPipeline)]
+    [string] $SubscriptionID,
+    [Parameter(Mandatory)]
     [string] $Path
 )
+
+$env:ARM_SUBSCRIPTION_ID = $SubscriptionID
 
 $Json = Get-Content $Path
 
