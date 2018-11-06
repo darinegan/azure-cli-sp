@@ -1,5 +1,5 @@
 Param (
-    [Parameter(Mandatory)]
+    [Parameter(Mandatory,ValueFromPipeline)]
     [string] $Path
 )
 
